@@ -2,7 +2,7 @@
 
 ## Lab 11: Event Driven Application
 
-## [Github Pull Request](https://github.com/nickibaldwin/caps/pull/1)
+## [Github Pull Request](https://github.com/nickibaldwin/caps/pull/2)
 
 ## Setup
 
