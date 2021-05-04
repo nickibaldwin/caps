@@ -1,0 +1,24 @@
+{
+  "name": "caps",
+  "version": "1.0.0",
+  "description": "## Lab 11: Event Driven Application",
+  "main": "caps.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickibaldwin/caps.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickibaldwin/caps/issues"
+  },
+  "homepage": "https://github.com/nickibaldwin/caps#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "faker": "^5.5.3"
+  }
+}
