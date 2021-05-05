@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/nickibaldwin/caps#readme",
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "faker": "^5.5.3"
+    "dotenv": "^8.3.0",
+    "faker": "^5.5.3",
+    "socket.io": "^4.0.1",
+    "socket.io-client": "^4.0.1"
   }
 }
