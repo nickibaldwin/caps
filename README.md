@@ -1,8 +1,8 @@
 # Code 401: Advanced Software Development in Full-Stack Javascript: 
 
-## Lab 11: Event Driven Application
+## Lab 12: Socket.io
 
-## [Github Pull Request](https://github.com/nickibaldwin/caps/pull/1)
+## [Github Pull Request](https://github.com/nickibaldwin/caps/pull/3)
 
 ## Setup
 
@@ -14,10 +14,9 @@
 ```git
 ├── LICENSE
 ├── README.md
-├── caps.js
 ├── drivers
 │   └── driver.js
-├── events.js
+├── hub.js
 ├── package-lock.json
 ├── package.json
 └── vendors
@@ -25,4 +24,3 @@
 ```
 
 ### Contributions
-

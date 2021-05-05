@@ -1,29 +1,20 @@
 'use strict';
 
-// Drivers Module
-// Monitor the system for events …
-// On the ‘pickup’ event …
-// Wait 1 second
-// Log “DRIVER: picked up [ORDER_ID]” to the console.
-// Emit an ‘in-transit’ event with the payload you received
-// Wait 3 seconds
-// Log “delivered” to the console
-// Emit a ‘delivered’ event with the same payload
+const io = require('socket.io-client');
 
-const events = require('../events.js');
+let host = "http://localhost:3000/caps";
 
-events.on('pickup', pickUpAndDeliver);
+const capsConnection = io.connect(host);
 
-function pickUpAndDeliver(payload) {
+capsConnection.on('pickup', pickUp);
+
+function pickUp(payload) {
   setTimeout(() => {
-    console.log(`DRIVER: picked up ${payload.orderId}`);
-    events.emit('in-transit', payload);
-  }, 1000);
-
+    console.log(`picking up ${payload.id}`);
+    capsConnection.emit('in-transit', payload);
+  }, 1500);
   setTimeout(() => {
-    console.log(`DRIVER: delivered ${payload.orderId}`);
-    events.emit('delievered', payload);
+    console.log(`delievered`, payload);
   }, 3000);
+  
 }
-
-module.exports = { pickUpAndDeliver };
