@@ -1,20 +1,18 @@
 'use strict';
 
 const io = require('socket.io-client');
+const SERVER_URL = process.env.SERVER_URL || 'http://localhost:3000';
 
-let host = "http://localhost:3000/caps";
+const socket = io.connect(`${SERVER_URL}/caps`);
 
-const capsConnection = io.connect(host);
+socket.on('pickup', payload => {
 
-capsConnection.on('pickup', pickUp);
-
-function pickUp(payload) {
   setTimeout(() => {
-    console.log(`picking up ${payload.id}`);
-    capsConnection.emit('in-transit', payload);
+    socket.emit('in-transit', payload);
   }, 1500);
+
   setTimeout(() => {
-    console.log(`delievered`, payload);
+    socket.emit('delivered', payload);
   }, 3000);
-  
-}
+
+});
