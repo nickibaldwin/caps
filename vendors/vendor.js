@@ -1,26 +1,26 @@
 'use strict';
 
-const io = require('socket.io-client');
 const faker = require('faker');
-require('dotenv').config();
+const io = require('socket.io-client');
 
-let host = "http://localhost:3000/caps";
+const SERVER_URL = process.env.SERVER_URL || 'http://localhost:3000';
 
-//========Connect=============
-const capsConnection = io.connect(host);
+const socket = io.connect(`${SERVER_URL}/caps`);
 
-//========Listeners=============
+const store = '1-800-flowerz';
 
-capsConnection.on('delievered', deliveryLogged);
+socket.emit('join', store);
 
-function deliveryLogged(payload) {
-  console.log(`Thank you for delivering ${payload.id}`);
-}
-
-//========Event Handlers=============
+socket.on('delivered', payload => {
+  console.log('item # - delievered', payload.orderID);
+});
 
 setInterval(() => {
-  const newOrder = {storeId: "STOREIDtest", orderId: faker.datatype.uuid(), Name: faker.name.findName(), address: faker.address.streetAddress() };
-  console.log(newOrder);
-  capsConnection.emit('pickup', newOrder);
-}, 5000);
+  let pckg = {
+    storeId: store,
+    orderId: faker.datatype.uuid(), 
+    customer: faker.name.findName(), 
+    address: faker.address.streetAddress(),
+  };
+  socket.emit('pickup', pckg);
+}, 500);
