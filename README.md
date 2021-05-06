@@ -1,6 +1,6 @@
 # Code 401: Advanced Software Development in Full-Stack Javascript:
 
-## Lab 12: Socket.io
+## Lab 12 Day 2: Socket.io
 
 ## [Github Pull Request](https://github.com/nickibaldwin/caps/pull/4)
 
