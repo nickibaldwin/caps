@@ -1,5 +1,6 @@
 'use strict';
 
+//express server, connecting to namespace
 const express = require('express');
 const faker = require('faker');
 const io = require('socket.io-client');
@@ -9,7 +10,7 @@ const SERVER_URL = process.env.SERVER_URL || 'http://localhost:3000';
 //connect our socket.io client to a socket.io server that lives on PORT 3000, then connect us to the namespace 'caps'
 const socket = io.connect(`${SERVER_URL}/caps`);
 
-const app = express();
+const app = express(); //express server (permits api interaction)- connected to socket.io server, so it can also hear the events and be connected to the event process 
 const PORT = process.env.PORT || 3001; //3000 is already being used by my hub/server
 
 //1:35:30
