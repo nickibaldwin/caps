@@ -23,4 +23,4 @@ setInterval(() => {
     address: faker.address.streetAddress(),
   };
   socket.emit('pickup', pckg);
-}, 500);
+}, 5000);
